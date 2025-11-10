@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbe48479-f944-498d-8fbc-6c6c8925115b" name="Changes" comment="" />
+    <list default="true" id="bbe48479-f944-498d-8fbc-6c6c8925115b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/restman/servlet/AuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/restman/servlet/AuthServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/customer/CustomerView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/customer/CustomerView.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manager/AddComboView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manager/AddComboView.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manager/ManageComboView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manager/ManageComboView.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/dao/ComboDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/dao/ComboDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/dao/FoodDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/dao/FoodDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/servlet/AuthServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/servlet/AuthServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/servlet/ComboServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/servlet/ComboServlet.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +27,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tuanhy1702&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/tuanhy1702/Restman.git&quot;,
+    &quot;accountId&quot;: &quot;c76e515d-5dd9-48e2-8c33-6c971d6f2853&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -35,6 +60,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.RestManApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Restman&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -90,7 +116,11 @@
       <workItem from="1762324966435" duration="11607000" />
       <workItem from="1762354282523" duration="1804000" />
       <workItem from="1762405418618" duration="2442000" />
-      <workItem from="1762415441668" duration="922000" />
+      <workItem from="1762415441668" duration="1628000" />
+      <workItem from="1762417283638" duration="14000" />
+      <workItem from="1762419884935" duration="709000" />
+      <workItem from="1762566467675" duration="1137000" />
+      <workItem from="1762786698548" duration="6966000" />
     </task>
     <servers />
   </component>

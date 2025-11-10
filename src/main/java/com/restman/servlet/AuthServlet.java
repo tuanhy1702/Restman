@@ -4,8 +4,6 @@ import com.restman.dao.CustomerDAO;
 import com.restman.dao.StaffDAO;
 import com.restman.entity.Customer;
 import com.restman.entity.Manager;
-import com.restman.entity.SaleStaff;
-import com.restman.entity.WarehouseStaff;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +36,14 @@ public class AuthServlet extends HttpServlet {
         if ("logout".equals(action)) {
             logout(req, resp);
         } else {
+            HttpSession session = req.getSession(false);
+            if (session != null) {
+                Object message = session.getAttribute("message");
+                if (message != null) {
+                    req.setAttribute("message", message);
+                    session.removeAttribute("message");
+                }
+            }
             // Hiển thị trang đăng nhập
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
@@ -72,7 +78,7 @@ public class AuthServlet extends HttpServlet {
         HttpSession session = req.getSession();
         
         try {
-            // 1) Manager
+            //  Manager
             Manager manager = staffDAO.loginManager(username, password);
             if (manager != null) {
                 session.setAttribute("user", manager);
@@ -83,29 +89,7 @@ public class AuthServlet extends HttpServlet {
                 return;
             }
 
-            // 2) Sale Staff
-            SaleStaff saleStaff = staffDAO.loginSaleStaff(username, password);
-            if (saleStaff != null) {
-                session.setAttribute("user", saleStaff);
-                session.setAttribute("userType", "saleStaff");
-                session.setAttribute("userId", saleStaff.getId());
-                session.setAttribute("userName", saleStaff.getName());
-                resp.sendRedirect(req.getContextPath() + "/views/saleStaff/SaleStaffView.jsp");
-                return;
-            }
-
-            // 3) Warehouse Staff
-            WarehouseStaff warehouseStaff = staffDAO.loginWarehouseStaff(username, password);
-            if (warehouseStaff != null) {
-                session.setAttribute("user", warehouseStaff);
-                session.setAttribute("userType", "warehouseStaff");
-                session.setAttribute("userId", warehouseStaff.getId());
-                session.setAttribute("userName", warehouseStaff.getName());
-                resp.sendRedirect(req.getContextPath() + "/views/warehouseStaff/WarehouseStaffView.jsp");
-                return;
-            }
-
-            // 4) Customer
+            //   Customer
             Customer customer = customerDAO.login(username, password);
             if (customer != null) {
                 session.setAttribute("user", customer);
@@ -173,8 +157,9 @@ public class AuthServlet extends HttpServlet {
             
             boolean success = customerDAO.register(customer);
             if (success) {
-                req.setAttribute("message", "Đăng ký thành công! Vui lòng đăng nhập.");
-                req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
+                HttpSession session = req.getSession();
+                session.setAttribute("message", "Đăng ký thành công! Vui lòng đăng nhập.");
+                resp.sendRedirect(req.getContextPath() + "/login.jsp");
             } else {
                 req.setAttribute("error", "Đăng ký thất bại. Vui lòng thử lại.");
                 req.getRequestDispatcher("/views/register.jsp").forward(req, resp);

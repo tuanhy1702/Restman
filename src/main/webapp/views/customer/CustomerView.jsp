@@ -77,12 +77,12 @@
         
         <!-- Main Functions -->
         <div class="row">
-                        <div class="mt-auto">
-                            <a href="${pageContext.request.contextPath}/views/customer/SearchFoodView.jsp" 
-                               class="btn btn-primary w-100">
-                                <i class="fas fa-search"></i> Tìm kiếm món ăn
-                            </a>
-                        </div>
+            <div class="mt-auto">
+                <a href="${pageContext.request.contextPath}/views/customer/SearchFoodView.jsp" 
+                    class="btn btn-primary w-100">
+                    <i class="fas fa-search"></i> Tìm kiếm món ăn
+                </a>
+            </div>
         </div>
     </div>
     

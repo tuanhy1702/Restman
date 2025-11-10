@@ -280,12 +280,12 @@
             let selectedFoods = [];
             const STORAGE_KEY = 'restman_selectedFoods';
 
-            // 💾 Lưu danh sách món ăn đã chọn vào localStorage
+            //  Lưu danh sách món ăn đã chọn vào localStorage
             function saveSelectedFoods() {
                 try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedFoods)); } catch (e) {}
             }
 
-            // 🔄 Tải danh sách món ăn đã chọn từ localStorage
+            //  Tải danh sách món ăn đã chọn từ localStorage
             function loadSelectedFoods() {
                 try {
                     const raw = localStorage.getItem(STORAGE_KEY);
@@ -304,14 +304,14 @@
                 } catch (e) {}
             }
 
-            // 🚮 Khi tải lại trang (không phải tìm kiếm), xóa dữ liệu món ăn đã chọn trước đó
+            //  Khi tải lại trang (không phải tìm kiếm), xóa dữ liệu món ăn đã chọn trước đó
             function resetSelectedFoodsOnLoad() {
                 try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
                 selectedFoods = [];
                 updateSelectedFoodsDisplay();
             }
 
-            // 🟢 Gắn sự kiện cho các nút thêm món ăn (add-food-btn)
+            //  Gắn sự kiện cho các nút thêm món ăn (add-food-btn)
             document.addEventListener('click', function(e) {
                 const btn = e.target.closest('.add-food-btn');
                 if (btn) {
@@ -326,7 +326,7 @@
                 }
             });
 
-            // 🧭 Khi trang được tải:
+            //  Khi trang được tải:
             // Nếu là kết quả tìm kiếm (searchFood=true) → giữ nguyên món ăn đã chọn
             // Ngược lại → đặt lại danh sách rỗng
             document.addEventListener('DOMContentLoaded', function() {
@@ -343,7 +343,7 @@
                 }
             });
 
-            // 📋 Khi gửi form tạo combo
+            //  Khi gửi form tạo combo
             document.addEventListener('DOMContentLoaded', function() {
                 const comboForm = document.getElementById('comboForm');
                 if (comboForm) {
@@ -365,7 +365,7 @@
                 }
             });
 
-            // ➕ Hàm thêm món vào danh sách combo
+            //  Hàm thêm món vào danh sách combo
             function addToCombo(foodId, triggerBtn) {
                 console.log('addToCombo ->', { foodId });
 
@@ -404,7 +404,7 @@
                     });
                 }
 
-                // ✨ Hiệu ứng chọn món
+                //  Hiệu ứng chọn món
                 foodItem.classList.add('selected');
                 setTimeout(() => {
                     foodItem.classList.remove('selected');
@@ -415,7 +415,7 @@
                 saveSelectedFoods();
                 console.log('selectedFoods after add:', selectedFoods);
 
-                // ✅ Hiển thị thông báo tạm thời trên nút
+                // Hiển thị thông báo tạm thời trên nút
                 const btn = triggerBtn || foodItem.querySelector('.add-food-btn');
                 if (btn) {
                     const originalText = btn.innerHTML;
@@ -429,7 +429,7 @@
                     }, 1000);
                 }
 
-                // 🪧 Thông báo khi thêm/cập nhật món
+                //  Thông báo khi thêm/cập nhật món
                 const message = isUpdate
                     ? 'Đã cập nhật số lượng "' + foodName + '" thành ' + quantity
                     : 'Đã thêm "' + foodName + '" vào danh sách đã chọn';
@@ -446,7 +446,7 @@
                 }, 300);
             }
 
-            // ❌ Xóa món ra khỏi danh sách combo
+            //  Xóa món ra khỏi danh sách combo
             function removeFromCombo(foodId) {
                 selectedFoods = selectedFoods.filter(food => food.id !== foodId);
                 updateSelectedFoodsDisplay();
@@ -455,7 +455,7 @@
 
             window.removeFromCombo = removeFromCombo;
 
-            // 🖼️ Cập nhật hiển thị danh sách món ăn đã chọn
+            //  Cập nhật hiển thị danh sách món ăn đã chọn
             function updateSelectedFoodsDisplay() {
                 const container = document.getElementById('selectedFoods');
                 const selectedCount = document.getElementById('selectedCount');
@@ -495,7 +495,7 @@
 
                 container.innerHTML = html;
 
-                // 🎯 Sự kiện khi thay đổi số lượng món ăn
+                //  Sự kiện khi thay đổi số lượng món ăn
                 container.addEventListener('input', function(ev) {
                     const qtyInput = ev.target.closest('.selected-qty');
                     if (qtyInput) {
@@ -510,7 +510,7 @@
                     }
                 });
 
-                // 🗑️ Sự kiện khi nhấn nút xóa món
+                // 🗑 Sự kiện khi nhấn nút xóa món
                 container.addEventListener('click', function(ev) {
                     const rmBtn = ev.target.closest('.remove-selected');
                     if (rmBtn) {
@@ -520,7 +520,7 @@
                 });
             }
 
-            // 🧹 Xóa tất cả món ăn đã chọn
+            //  Xóa tất cả món ăn đã chọn
             function clearAllFoods() {
                 if (confirm('Bạn có chắc muốn xóa tất cả món ăn đã chọn?')) {
                     selectedFoods = [];
@@ -531,7 +531,7 @@
 
             window.clearAllFoods = clearAllFoods;
 
-            // 🔔 Hiển thị thông báo tạm thời (notification)
+            //  Hiển thị thông báo tạm thời (notification)
             function showNotification(message, type) {
                 // Xóa thông báo cũ (nếu có)
                 const existingNotif = document.querySelector('.food-notification');

@@ -55,7 +55,7 @@
         }
 
         .btn-secondary:hover {
-            background-color: #007acc !important; /* xanh đậm hơn khi hover */
+            background-color: #007acc !important;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 153, 255, 0.4);
         }
@@ -64,7 +64,7 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            height: 480px; /* cố định chiều cao combo */
+            height: 480px;
             display: flex;
             flex-direction: column;
         }
@@ -72,7 +72,7 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }.card-body {
-             font-size: 1.45rem; /* tăng nhẹ toàn bộ chữ bên trong combo */
+             font-size: 1.45rem;
         }
         .combo-image {
             height: 180px;
@@ -94,7 +94,7 @@
         .combo-food-list {
             flex: 1;
             overflow-y: auto;
-            max-height: 150px; /* giới hạn chiều cao danh sách món */
+            max-height: 150px;
             border-radius: 10px;
         }
         .combo-food-list::-webkit-scrollbar {
