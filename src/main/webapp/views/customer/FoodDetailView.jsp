@@ -149,11 +149,6 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function addToCart() {
-            // TODO: Implement add to cart functionality
-            alert('Chức năng thêm vào giỏ hàng sẽ được phát triển trong phiên bản tiếp theo!');
-        }
-    </script>
+
 </body>
 </html>

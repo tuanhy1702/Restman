@@ -4,6 +4,7 @@ import com.restman.dao.ComboDAO;
 import com.restman.dao.ComboFoodDAO;
 import com.restman.dao.FoodDAO;
 import com.restman.entity.Combo;
+import com.restman.entity.ComboFood;
 import com.restman.entity.Food;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -78,9 +81,7 @@ public class ComboServlet extends HttpServlet {
                 case "create":
                     createCombo(req, resp);
                     break;
-                case "addFood":
-                    addFoodToCombo(req, resp);
-                    break;
+
                 default:
                     resp.sendRedirect(req.getContextPath() + "/combo");
                     break;
@@ -105,7 +106,21 @@ public class ComboServlet extends HttpServlet {
         }
 
         List<Combo> combos = comboDAO.getCombo();
+        // Preload foods per combo to avoid DAO calls from JSP
+        Map<Integer, List<ComboFood>> comboFoodsMap = new HashMap<>();
+        if (combos != null) {
+            for (Combo c : combos) {
+                try {
+                    List<com.restman.entity.ComboFood> foods = comboFoodDAO.getFoodsByComboId(c.getId());
+                    comboFoodsMap.put(c.getId(), foods);
+                } catch (Exception e) {
+                    logger.warning("Failed to load foods for combo id=" + c.getId() + ": " + e.getMessage());
+                    comboFoodsMap.put(c.getId(), java.util.Collections.emptyList());
+                }
+            }
+        }
         req.setAttribute("combos", combos);
+        req.setAttribute("comboFoodsMap", comboFoodsMap);
         req.getRequestDispatcher("/views/manager/ManageComboView.jsp").forward(req, resp);
     }
     
@@ -193,38 +208,8 @@ public class ComboServlet extends HttpServlet {
             showAddComboForm(req, resp);
         }
     }
-    
-    /**
-     * Thêm món ăn vào combo
-     */
-    private void addFoodToCombo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String comboIdStr = req.getParameter("comboId");
-        String foodIdStr = req.getParameter("foodId");
-        String quantityStr = req.getParameter("quantity");
-        
-        if (comboIdStr != null && !comboIdStr.isEmpty() && 
-            foodIdStr != null && !foodIdStr.isEmpty() && 
-            quantityStr != null && !quantityStr.isEmpty()) {
-            try {
-                int comboId = Integer.parseInt(comboIdStr);
-                int foodId = Integer.parseInt(foodIdStr);
-                int quantity = Integer.parseInt(quantityStr);
-                
-                boolean success = comboFoodDAO.addFoodToCombo(comboId, foodId, quantity);
-                if (success) {
-                    req.setAttribute("message", "Thêm món ăn vào combo thành công");
-                } else {
-                    req.setAttribute("error", "Thêm món ăn vào combo thất bại");
-                }
-            } catch (NumberFormatException e) {
-                req.setAttribute("error", "Dữ liệu không hợp lệ");
-            }
-        } else {
-            req.setAttribute("error", "Vui lòng nhập đầy đủ thông tin");
-        }
-        
-       
-    }
+
+
     
     @Override
     public void destroy() {

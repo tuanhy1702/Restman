@@ -4,6 +4,7 @@
 <%@ page import="com.restman.entity.ComboFood" %>
 <%@ page import="com.restman.dao.ComboFoodDAO" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -207,20 +208,24 @@
                                 <div class="combo-food-list">
                                     <ul class="list-group list-group-flush mb-3">
                                         <%
-                                            ComboFoodDAO comboFoodDAO = new ComboFoodDAO();
-                                            java.util.List<ComboFood> comboFoods = comboFoodDAO.getFoodsByComboId(combo.getId());
+                                            Map<Integer, List<ComboFood>> comboFoodsMap = (Map<Integer, List<ComboFood>>) request.getAttribute("comboFoodsMap");
+                                            List<ComboFood> comboFoods = (comboFoodsMap != null) ? comboFoodsMap.get(combo.getId()) : null;
                                             if (comboFoods != null && !comboFoods.isEmpty()) {
                                                 for (ComboFood cf : comboFoods) {
-                                                    String foodName = (cf.getFood() != null && cf.getFood().getName() != null) ? cf.getFood().getName() : ("Món #" + cf.getFoodId());
+                                                    String foodName = (cf.getFood() != null && cf.getFood().getName() != null)
+                                                        ? cf.getFood().getName()
+                                                        : ("Món #" + cf.getFoodId());
                                         %>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <span><i class="fas fa-utensils text-muted"></i> <%= foodName %></span>
-                                                <span class="badge bg-secondary">x<%= cf.getQuantity() %></span>
-                                            </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <span><i class="fas fa-utensils text-muted"></i> <%= foodName %></span>
+                                                    <span class="badge bg-secondary">x<%= cf.getQuantity() %></span>
+                                                </li>
                                         <%
                                                 }
                                             } else {
-                                        
+                                        %>
+                                                <li class="list-group-item text-muted text-center">Chưa có món ăn trong combo</li>
+                                        <%
                                             }
                                         %>
                                     </ul>

@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bbe48479-f944-498d-8fbc-6c6c8925115b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/restman/servlet/AuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/restman/servlet/AuthServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/customer/CustomerView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/customer/CustomerView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manager/AddComboView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manager/AddComboView.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/restman/dao/ComboFoodDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/restman/dao/ComboFoodDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/restman/servlet/ComboServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/restman/servlet/ComboServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/customer/FoodDetailView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/customer/FoodDetailView.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manager/ManageComboView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manager/ManageComboView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/dao/ComboDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/dao/ComboDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/dao/FoodDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/dao/FoodDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/dao/ComboFoodDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/dao/ComboFoodDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/restman/entity/ImportBill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/entity/ImportBill.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/restman/servlet/AuthServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/servlet/AuthServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/restman/servlet/ComboServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/restman/servlet/ComboServlet.class" afterDir="false" />
     </list>
@@ -120,7 +120,8 @@
       <workItem from="1762417283638" duration="14000" />
       <workItem from="1762419884935" duration="709000" />
       <workItem from="1762566467675" duration="1137000" />
-      <workItem from="1762786698548" duration="6966000" />
+      <workItem from="1762786698548" duration="8409000" />
+      <workItem from="1762832674107" duration="16766000" />
     </task>
     <servers />
   </component>

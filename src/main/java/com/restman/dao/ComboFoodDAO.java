@@ -78,60 +78,7 @@ public class ComboFoodDAO extends DAO {
         return comboFoods;
     }
     
-    /**
-     * Xóa món ăn khỏi combo
-     */
-    public boolean removeFoodFromCombo(int comboId, int foodId) {
-        String sql = "DELETE FROM tblComboFood WHERE Comboid = ? AND Foodid = ?";
-        
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, comboId);
-            ps.setInt(2, foodId);
-            int affectedRows = ps.executeUpdate();
-            return affectedRows > 0;
-        } catch (SQLException e) {
-            logger.severe("Error removing food from combo: " + e.getMessage());
-            e.printStackTrace();
-        }
-        
-        return false;
-    }
+
     
-    /**
-     * Cập nhật số lượng món ăn trong combo
-     */
-    public boolean updateFoodQuantityInCombo(int comboId, int foodId, int quantity) {
-        String sql = "UPDATE tblComboFood SET quantity = ? WHERE Comboid = ? AND Foodid = ?";
-        
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, quantity);
-            ps.setInt(2, comboId);
-            ps.setInt(3, foodId);
-            int affectedRows = ps.executeUpdate();
-            return affectedRows > 0;
-        } catch (SQLException e) {
-            logger.severe("Error updating food quantity in combo: " + e.getMessage());
-            e.printStackTrace();
-        }
-        
-        return false;
-    }
-    
-    /**
-     * Xóa tất cả món ăn khỏi combo
-     */
-    public boolean removeAllFoodsFromCombo(int comboId) {
-        String sql = "DELETE FROM tblComboFood WHERE Comboid = ?";
-        
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, comboId);
-            int affectedRows = ps.executeUpdate();
-            return affectedRows >= 0; // >= 0 vì có thể combo chưa có món nào
-        } catch (SQLException e) {
-            logger.severe("Error removing all foods from combo: " + e.getMessage());
-            e.printStackTrace();
-        }
-        
-        return false;
-    }
+
 }
